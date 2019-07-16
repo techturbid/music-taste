@@ -20,4 +20,7 @@ public interface SpotifyClient {
     @RequestMapping(method = RequestMethod.GET, value = "/me/top/artists")
     JsonNode getArtists(@RequestHeader("Authorization") String accessToken);
 
+    @RequestMapping(method = RequestMethod.GET, value = "/me/top/tracks")
+    JsonNode getTracks(@RequestHeader("Authorization") String accessToken);
+
 }
