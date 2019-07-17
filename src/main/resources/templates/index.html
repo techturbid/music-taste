@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Provide your token</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <form method="GET" action="/artists">
+            <div class="field">
+                <div class="control is-small">
+                    <input class="input" type="text" name="token"/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control is-small">
+                    <select class="select" name="time_range">
+                        <option value="short_term">Weeks</option>
+                        <option value="medium_term">Months</option>
+                        <option value="long_term">Years</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Lookup artists"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
