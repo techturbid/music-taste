@@ -22,7 +22,7 @@
                     <tbody>
                     <tr th:each="track : ${tracks.items}">
                         <td><img th:src="${track.album.bestImage.url}" width="64" height="64" th:alt-title="${track.album.releaseDate} + ' - ' + ${track.album.name}" /></td>
-                        <td> <a  th:text="${track.name}" th:href="$(track.trackExternalUrls(spotify))" /> </td>
+                        <td> <a  th:text="${track.name}" /> </td>
                     </tr>
                     </tbody>
                 </table>

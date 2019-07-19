@@ -27,7 +27,7 @@ public class SpotifyController {
     @GetMapping("/")
     public ModelAndView index(@RequestParam(value = "code", required = false) String code) {
         if (code == null || code.isEmpty()) {
-            String redirectUrl = "INSERT_URL_HERE";
+            String redirectUrl = "https://accounts.spotify.com/authorize?response_type=code&client_id=8375b8fbe96f4052842117a57b211c18&scope=user-top-read&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F";
             return new ModelAndView("redirect:" + redirectUrl);
         }
 
