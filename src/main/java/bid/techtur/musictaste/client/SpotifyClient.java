@@ -1,7 +1,9 @@
 package bid.techtur.musictaste.client;
 
 import bid.techtur.musictaste.dto.ArtistDTO;
+import bid.techtur.musictaste.dto.TrackDTO;
 import com.fasterxml.jackson.databind.JsonNode;
+import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ public interface SpotifyClient {
     ArtistDTO getArtists(@RequestHeader("Authorization") String accessToken, @RequestParam("time_range") String timeRange);
 
     @RequestMapping(method = RequestMethod.GET, value = "/me/top/tracks")
-    JsonNode getTracks(@RequestHeader("Authorization") String accessToken);
+    TrackDTO getTracks(@RequestHeader("Authorization") String accessToken, @RequestParam("time_range") String timeRange);
 
 }
+
+

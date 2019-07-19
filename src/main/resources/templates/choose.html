@@ -8,11 +8,7 @@
 <body>
     <div class="container">
         <form method="GET" action="/artists">
-            <div class="field">
-                <div class="control is-small">
-                    <input class="input" type="text" name="token"/>
-                </div>
-            </div>
+            <input type="hidden" name="token" th:value="${token}"/>
             <div class="field">
                 <div class="control is-small">
                     <select class="select" name="time_range">
@@ -25,6 +21,26 @@
             <div class="field">
                 <div class="control">
                     <input class="button is-primary" type="submit" value="Lookup artists"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <form method="GET" action="/tracks">
+            <input type="hidden" name="token" th:value="${token}"/>
+            <div class="field">
+                <div class="control is-small">
+                    <select class="select" name="time_range">
+                        <option value="short_term">Weeks</option>
+                        <option value="medium_term">Months</option>
+                        <option value="long_term">Years</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Lookup tracks"/>
                 </div>
             </div>
         </form>

@@ -14,20 +14,11 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 @Configuration
-public class SpotifyClientConfig {
+public class SpotifyAuthorizationClientConfig {
 
     @Bean
-    public Decoder feignDecoder() {
-        HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter(customObjectMapper());
-        ObjectFactory<HttpMessageConverters> objectFactory = () -> new HttpMessageConverters(jacksonConverter);
-        return new ResponseEntityDecoder(new SpringDecoder(objectFactory));
+    public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
+        return new BasicAuthRequestInterceptor("8375b8fbe96f4052842117a57b211c18", "c8acdbacb4ea4cf9a3f08dfa56ce08b9");
     }
-
-    public ObjectMapper customObjectMapper(){
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return objectMapper;
-    }
-
 
   }

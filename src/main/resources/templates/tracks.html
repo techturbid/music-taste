@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Artists</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>Tracks</strong>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table is-stripped is-hoverable">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="track : ${tracks.items}">
+                        <td><img th:src="${track.album.bestImage.url}" width="64" height="64" th:alt-title="${track.album.releaseDate} + ' - ' + ${track.album.name}" /></td>
+                        <td> <a  th:text="${track.name}" th:href="$(track.trackExternalUrls(spotify))" /> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button onclick="window.history.go(-1)" class="button">Voltar</button>
+    </div>
+</body>
+</html>

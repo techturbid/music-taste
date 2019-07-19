@@ -23,6 +23,9 @@ public class ArtistDTO {
         @JsonProperty("name")
         private String name;
 
+        @JsonProperty("href")
+        private String albumHref;
+
         @JsonProperty("external_urls")
         private Map<String, String> externalUrls;
 
